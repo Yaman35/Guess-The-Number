@@ -16,44 +16,43 @@
     }
 
     if(isNaN(input)){                                        // Eger kullanici input icerisine sayi girmezse
-        document.getElementById("span1").innerText = "Try Again...";
-        document.getElementById("span1").style.color = "blue";
+      document.getElementById("span1").innerText = "Try Again...";
+      document.getElementById("span1").style.color = "blue";
         
-        var r = confirm("Please enter a number?");
-        if (r == true) {
-            document.getElementById("guess").value = '';
-        }else{
-            document.getElementById('guess').value = '';
-        }
+      alert("Please enter a number?");
+      document.getElementById("guess").value = '';
+        
     }
 
     if (!isNaN(input) && input !== " "){                     // Eger kullanici input alanina sayi olmayan bir karakter veya bosluk girerse denenen sayilar dizisine atmasin diye 
-         guessed_nums.push(input);
+      guessed_nums.push(input);
     }
     
-    if (input > randomNumber) {     // Girilen sayi tahmin edilmek istenen sayidan buyukse
-        count_guess++; 
-        document.getElementById("span1").innerText="Please Enter a Lower Number...";
-        document.getElementById('span2').innerText = 'Number of attemps: ' + count_guess;
-        document.getElementById('span3').innerText = `Tried Numbers : ${guessed_nums}`;
-        
+    
+      if (input > randomNumber) {     // Girilen sayi tahmin edilmek istenen sayidan buyukse
+          count_guess++; 
+          document.getElementById("span1").innerText="Please Enter a Lower Number...";
+          document.getElementById('span2').innerText = 'Number of attemps: ' + count_guess;
+          document.getElementById('span3').innerText = `Tried Numbers : ${guessed_nums}`;
+
+      }
+      if (input < randomNumber) {     // Girilen sayi tahmin edilmek istenen sayidan kucukse
+          count_guess++;
+          document.getElementById('span1').innerText = 'Please Enter a Greater Number...';
+          document.getElementById('span2').innerText = 'Number of attemps: ' + count_guess;
+          document.getElementById('span3').innerText = `Tried Numbers : ${guessed_nums}`;
+
+
+      }
+      if (input == randomNumber) {    // Girilen sayi tahmin edilmek istenen sayiya esitse
+          document.getElementById('span1').innerText = 'CONGRATULATIONS!!!';
+          document.getElementById('span2').innerText = `YOU HAVE GUESSED THE NUMBER AT ${count_guess + 1} ATTEMPTS`;
+          document.getElementById('span3').innerText = "IF YOU WANT TO PLAY AGAIN, CLICK RESTART";
+          stopProgress();
+      }
+
+      document.getElementById('guess').value = '';            // Her seferinde input ici temizlensin
     }
-    if (input < randomNumber) {     // Girilen sayi tahmin edilmek istenen sayidan kucukse
-        count_guess++;
-        document.getElementById('span1').innerText = 'Please Enter a Greater Number...';
-        document.getElementById('span2').innerText = 'Number of attemps: ' + count_guess;
-        document.getElementById('span3').innerText = `Tried Numbers : ${guessed_nums}`;
-        
-        
-    }
-    if (input == randomNumber) {    // Girilen sayi tahmin edilmek istenen sayiya esitse
-        document.getElementById('span1').innerText = 'CONGRATULATIONS!!!';
-        document.getElementById('span2').innerText = `YOU HAVE GUESSED THE NUMBER AT ${count_guess + 1} ATTEMPTS`;
-        document.getElementById('span3').innerText = "IF YOU WANT TO PLAY AGAIN, CLICK RESTART";
-        stopProgress();
-    }
-    document.getElementById('guess').value = '';            // Her seferinde input ici temizlensin
-}
 
 document.getElementById('reset').onclick = function () {    // Restart butonuna basıldığında ilgili fonksiyon cagiriliyor
   location.reload();                                        // Sayfa tekrar yenileniyor
