@@ -1,0 +1,175 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url(https://www.teachwithict.com/uploads/5/5/8/2/5582303/published/guess-the-number.png?1611311296);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.container{
+    width: 50%;
+    background-color: lightblue;
+    height: 60vh;
+    text-align: center;
+    margin: 5px;
+    padding: 5px;
+    position: absolute;
+    top: 25%;
+    left: 25%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 50px;
+    box-shadow: 0px 0px 10px black;
+    opacity: 0.9 ;
+    
+}
+
+label{
+    font-size: 2rem;
+}
+
+#div1{
+    display: flex;
+    flex-direction: column;
+}
+
+#guess{
+    
+    border-radius: 10px;
+    border: none;
+    text-align: center;
+    width: 20%;
+    height: 50px;
+    font-size: 1.5rem;
+    box-shadow: 0px 0px 10px black;
+    transition: .5s;
+}
+
+input#guess:focus{
+    outline: none;
+    border: 2px solid blue;
+    transform: rotate(360deg);
+}
+
+input#guess:focus::placeholder{
+    color: transparent;
+}
+
+#button{
+    padding: 5px 20px ;
+    border-radius: 10px;
+    border: none;
+    background-color:green;
+    color: white;
+    opacity: 0.8;
+    font-size: 1.8rem;
+    margin-left: 20px;
+    margin-top: 20px;
+    transition: .8s;
+}
+
+#button:hover{
+    opacity: 1;
+}
+
+button{
+    width: 20%;
+    height: 50px;
+    margin: 15px auto;
+    border-radius: 10px;
+    background-color: lightgreen;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+
+span{
+    font-size: 1.5rem;
+    color: orangered;
+    margin-top:15px;
+    opacity: 1;
+}
+
+#reset{
+    position: relative;
+    z-index: 1;
+    background-color: white;
+}
+
+#reset:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgb(81, 238, 81);
+    border-radius: 10px;
+    z-index: -1;
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.5s ease-in-out;
+}
+
+#reset:hover::before{
+    transform: scaleX(1)
+}
+
+/*Media Queries*/
+
+@media(max-width:1200px){
+    #guess, #reset{
+        font-size:1.0rem;
+    }
+
+    .container{
+        height: 70vh;
+    }
+}
+
+@media(max-width:900px){
+    .container{
+        height: 90vh;
+    }
+
+    #guess, #reset{
+        width: 40%
+    }
+
+    label{
+        margin-top: 60px;
+    }
+}
+
+@media(max-width:630px){
+    
+    #div2{
+        display:flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    #button{
+        margin-left: 10px;
+    }
+
+    span{
+        font-size: 1rem;
+    }
+}
+
+@media(max-width:440px){
+    
+    #guess, #reset{
+        font-size:0.8rem;
+    }
+
+    span{
+        margin-top: 5px;
+    }
+}
