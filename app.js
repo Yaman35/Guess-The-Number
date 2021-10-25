@@ -12,7 +12,7 @@
     }
 
     if(input <= 0 || input > 100){                          // Eger kullanici 1 ile 100 arasinda olmayan bir sayi girerse
-      alert("Please enter a number between 0 and 100!");
+      alert("Please enter a number between 1 and 100!");
     }
 
     if(isNaN(input)){                                        // Eger kullanici input icerisine sayi girmezse
